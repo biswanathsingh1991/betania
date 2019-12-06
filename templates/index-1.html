@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="material-style layout-fixed">
+	<head>
+		<title>TRACK WEIGHER | IMWM</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="" />
+		<meta name="keywords" content="">
+		<!-- <meta name="author" content="Srthemesvilla" /> -->
+		<link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico">
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+		<!-- Icon fonts -->
+		<link rel="stylesheet" href="{% static 'fonts/fontawesome.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/ionicons.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/linearicons.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/open-iconic.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/pe-icon-7-stroke.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/feather.css' %}">
+		<!-- Core stylesheets -->
+		<link rel="stylesheet" href="{% static 'css/bootstrap-material.css' %}">
+		<link rel="stylesheet" href="{% static 'css/shreerang-material.css' %}">
+		<link rel="stylesheet" href="{% static 'css/uikit.css' %}">
+		<!-- Libs -->
+		<link rel="stylesheet" href="{% static 'libs/perfect-scrollbar/perfect-scrollbar.css' %}">
+		<link rel="stylesheet" href="{% static 'libs/flot/flot.css' %}">
+	</head>
+	<body>
+		<!-- [ Preloader ] Start -->
+		<!-- <div class="page-loader">
+			<div class="bg-primary"></div>
+		</div> -->
+		<!-- [ Preloader ] End -->
+		<!-- [ Layout wrapper ] Start -->
+		<div class="layout-wrapper layout-2">
+			<div class="layout-inner">
+				<!-- [ Layout sidenav ] Start -->
+				<div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-dark">
+					<!-- Brand demo (see assets/css/demo/demo.css) -->
+				
+					<div class="sidenav-divider mt-0"></div>
+					<!-- Links -->
+					<ul class="sidenav-inner py-1">
+						<!-- Dashboards -->
+						
+						<li class="sidenav-header small font-weight-semibold">Navigate</li>
+						<li class="sidenav-item">
+							<a href="charts_gmaps.html" class="sidenav-link">
+								<i class="sidenav-icon feather icon-map-pin"></i>
+								<div>Dashboard</div>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+				<!-- [ Layout sidenav ] End -->
+				<!-- [ Layout container ] Start -->
+				<div class="layout-container">
+					<!-- [ Layout navbar ( Header ) ] Start -->
+					<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-primary container-p-x" id="layout-navbar">
+						<!-- Brand demo (see assets/css/demo/demo.css) -->
+						<a href="index-2.html" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
+							<span class="app-brand-logo demo">
+								<!-- <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid"> -->
+							</span>
+							<span class="app-brand-text demo font-weight-normal ml-2"><img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid" style="width: 169px;"></span>
+						</a>
+						<!-- Sidenav toggle (see assets/css/demo/demo.css) -->
+						<div class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
+							<a class="nav-item nav-link px-0 mr-lg-4" href="javascript:">
+								<i class="ion ion-md-menu text-large align-middle"></i>
+							</a>
+						</div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#layout-navbar-collapse">
+						<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="navbar-collapse collapse" id="layout-navbar-collapse">
+							<!-- Divider -->
+							<hr class="d-lg-none w-100 my-2">
+							<div class="navbar-nav align-items-lg-center">
+								<!-- Search -->
+								<!-- <label class="nav-item navbar-text navbar-search-box p-0 active">
+									<i class="feather icon-search navbar-icon align-middle"></i>
+									<span class="navbar-search-input pl-2">
+										<input type="text" class="form-control navbar-text mx-2" placeholder="Search...">
+									</span>
+								</label> -->
+							</div>
+							<div class="navbar-nav align-items-lg-center ml-auto">
+								<!-- Divider -->
+								<div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
+								<div class="demo-navbar-user nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+										<span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+											<img src="assets/img/avatars/1.png" alt class="d-block ui-w-30 rounded-circle">
+											<span class="px-1 mr-lg-2 ml-2 ml-lg-0">Cindy Deitch</span>
+										</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right">
+										<a href="javascript:" class="dropdown-item">
+										<i class="feather icon-user text-muted"></i> &nbsp; My profile</a>
+										<div class="dropdown-divider"></div>
+										<a href="login.html" class="dropdown-item">
+										<i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</nav>
+					<!-- [ Layout navbar ( Header ) ] End -->
+					<!-- [ Layout content ] Start -->
+					<div class="layout-content">
+						<!-- [ content ] Start -->
+						<div class="container-fluid flex-grow-1 container-p-y">
+							<h4 class="font-weight-bold py-3 mb-0"> My Dashboard</h4>
+							<div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#"><i class="feather icon-home"></i></a></li>
+									<!-- <li class="breadcrumb-item"><a href="#"></a></li> -->
+									<li class="breadcrumb-item active">Dashboard</li>
+								</ol>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 col-xl-6">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-apartment text-success display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted">Plant<span class="text-primary">  Name</span></h6>
+													<div class="text-large"><h4 class="mt-3 mb-0">Sri Mayur Biscuit</h4></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-6">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-earth text-primary display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted"><span class="text-primary">Plant </span> Location</h6>
+													<h4 class="mt-3 mb-0">Baripada, Odisa</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-6 col-xl-3">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-layers text-primary display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted">Top<span class="text-primary"> Count</span></h6>
+													<div class="text-large"><h4 class="mt-3 mb-0">7652<i class="ion ion-md-arrow-round-up ml-3 text-success"></i></h4></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-3">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-cart text-primary display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted"><span class="text-primary">Max</span> Over-Weight</h6>
+													<h4 class="mt-3 mb-0">6325<i class="ion ion-md-arrow-round-up ml-3 text-success" style="color: #ff4961 !important;"></i></h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-3">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-cart text-primary display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted">Min <span class="text-primary">Over-Weight       </span></h6>
+													<h4 class="mt-3 mb-0">652<i class="ion ion-md-arrow-round-down ml-3 text-danger"></i></h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-3">
+									<div class="card bg-pattern-3-dark mb-4">
+										<div class="card-body">
+											<div class="d-flex align-items-center">
+												<div class="col-auto">
+													<i class="lnr lnr-trash text-primary display-4"></i>
+												</div>
+												<div class="col">
+													<h6 class="mb-0 text-muted">Daily <span class="text-primary">Rejected</span></h6>
+													<h4 class="mt-3 mb-0">59<i class="ion ion-md-arrow-round-down ml-3 text-danger"></i></h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="row">
+							<!-- 3rd row Start -->
+							<div class="col-xl-12">
+								<div class="col-md-12">
+									<div class="card mb-4">
+									<h6 class="card-header">Line chart</h6>
+									<div class="card-body">
+									<div id="am-xy-12" style="height: 400px"></div>
+									</div>
+									</div>
+								</div>
+							</div>
+							<!-- 3rd row Start -->
+							</div>
+						</div>
+						<!-- [ content ] End -->
+						<!-- [ Layout footer ] Start -->
+						<nav class="layout-footer footer bg-white">
+							<div class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
+								<div class="pt-3">
+									<span class="footer-text font-weight-semibold">&copy; <a href="" class="footer-link" target="_blank">TrackWeigher</a></span>
+								</div>
+								<div>
+									<a href="javascript:" class="footer-link pt-3">About Us</a>
+									<a href="javascript:" class="footer-link pt-3 ml-4">Help</a>
+									<a href="javascript:" class="footer-link pt-3 ml-4">Contact</a>
+									<a href="javascript:" class="footer-link pt-3 ml-4">Terms &amp; Conditions</a>
+								</div>
+							</div>
+						</nav>
+						<!-- [ Layout footer ] End -->
+					</div>
+					<!-- [ Layout content ] Start -->
+				</div>
+				<!-- [ Layout container ] End -->
+			</div>
+			<!-- Overlay -->
+			<div class="layout-overlay layout-sidenav-toggle"></div>
+		</div>
+		<!-- [ Layout wrapper] End -->
+		<!-- Core scripts -->
+		<script src="assets/js/pace.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="assets/libs/popper/popper.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/sidenav.js"></script>
+		<script src="assets/js/layout-helpers.js"></script>
+		<script src="assets/js/material-ripple.js"></script>
+		<!-- Libs -->
+		<script src="assets/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+		<script src="assets/libs/eve/eve.js"></script>
+		<script src="assets/libs/flot/flot.js"></script>
+		<script src="assets/libs/flot/curvedLines.js"></script>
+		<script src="assets/libs/chart-am4/core.js"></script>
+		<script src="assets/libs/chart-am4/charts.js"></script>
+		<script src="assets/libs/chart-am4/animated.js"></script>
+		<!-- Demo -->
+		<!-- <script src="assets/js/demo.js"></script><script src="assets/js/analytics.js"></script> -->
+		<!-- <script src="assets/js/pages/dashboards_index.js"></script> -->
+	</body>
+</html>
