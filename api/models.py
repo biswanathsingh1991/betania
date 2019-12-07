@@ -2,6 +2,16 @@ from django.db import models
 from secrets import token_hex
 from django_extensions.db.fields import (
     CreationDateTimeField, ModificationDateTimeField)
+import secrets
+
+import random
+import string
+
+from django.utils.text import slugify
+
+
+def unique_uid_generator(size=12, chars=string.digits + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 
 class Location(models.Model):
@@ -11,7 +21,7 @@ class Location(models.Model):
         verbose_name="Location Country", default="India", max_length=500)
     loc = models.TextField(verbose_name="Meta data")
     uid = models.CharField(
-        verbose_name="Master Plant Uid", default=token_hex(16), editable=False, max_length=50)
+        verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()
     timestamp_modified = ModificationDateTimeField()
 
@@ -22,7 +32,7 @@ class Location(models.Model):
 class MasterPlant(models.Model):
     name = models.TextField(verbose_name="Master Plant Name")
     uid = models.CharField(
-        verbose_name="Master Plant Uid", default=token_hex(16), editable=False, max_length=50)
+        verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     loc = models.ForeignKey(
         Location, verbose_name="Plant Location", on_delete=models.CASCADE)
     timestamp_created = CreationDateTimeField()
@@ -37,7 +47,7 @@ class MasterSku(models.Model):
     ul = models.PositiveIntegerField(verbose_name="Sku Ul")
     ll = models.PositiveIntegerField(verbose_name="Sku ll")
     uid = models.CharField(
-        verbose_name="Master Plant Uid", default=token_hex(16), editable=False, max_length=50)
+        verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()
     timestamp_modified = ModificationDateTimeField()
 
@@ -51,7 +61,7 @@ class MasterMachine(models.Model):
         MasterPlant, verbose_name="plant", on_delete=models.CASCADE)
     mm_id = models.CharField(verbose_name="Machine Id", max_length=200)
     uid = models.CharField(
-        verbose_name="Master Plant Uid", default=token_hex(16), editable=False, max_length=50)
+        verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()
     timestamp_modified = ModificationDateTimeField()
 
@@ -74,7 +84,7 @@ class MachineDetail(models.Model):
         max_length=100, verbose_name="Pass Status", choices=pass_status_choices)
     box_count = models.PositiveIntegerField()
     uid = models.CharField(
-        verbose_name="Master Plant Uid", default=token_hex(16), editable=False, max_length=50)
+        verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()
     timestamp_modified = ModificationDateTimeField()
 

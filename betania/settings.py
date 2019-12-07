@@ -136,7 +136,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 CORS_ORIGIN_ALLOW_ALL = True
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
@@ -163,3 +162,5 @@ REST_FRAMEWORK = {
     # 'PAGE_SIZE': 2
 
 }
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
+ACCOUNT_EMAIL_REQUIRED = False
