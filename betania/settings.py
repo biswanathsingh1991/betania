@@ -38,10 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'rest_framework.authtoken',
     'api',
     'corsheaders',
     'rest_framework',
     'betania_template',
+    'rest_auth',
+    'register',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -61,8 +69,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-		'/home/ubuntu/betania/templates',
-],
+                 '/home/ubuntu/betania/templates',
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
