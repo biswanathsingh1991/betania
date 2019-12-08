@@ -14,8 +14,7 @@ class SkuSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MasterSku
-        fields = "__all__"
-
+        fields = ("sku_id", "ul", "ll", "name", "uid")
 
 class SkuIdListView(ListAPIView):
 
