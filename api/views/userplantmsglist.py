@@ -20,8 +20,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MachineDetail
-        fields = "__all__"
-        depth = 2
+        exclude = ("timestamp_modified", )
 
 
 class MessageFilter(filters.FilterSet):
@@ -50,7 +49,29 @@ class UserPlantMessageListView(ListAPIView):
                        OrderingFilter, SearchFilter)
     filterset_class = MessageFilter
 
+    def parsedata(self, data):
+
+        data_dict = {}
+        for i in data:
+            data_dict[f't{i.get("id")}'] = i
+        return {
+            "total_msg": len(data),
+
+            "data": data_dict
+        }
+
     def get_queryset(self):
         plant = self.request.user.userprofile.plant_staff
         return MachineDetail.objects.filter(machine__plant__uid=plant.uid)
         # return MachineDetail.objects.all()
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(self.parsedata(serializer.data))
