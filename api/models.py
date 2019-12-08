@@ -46,6 +46,7 @@ class MasterSku(models.Model):
     sku_id = models.CharField(verbose_name="Sku Name", max_length=200)
     ul = models.PositiveIntegerField(verbose_name="Sku Ul")
     ll = models.PositiveIntegerField(verbose_name="Sku ll")
+    name=models.CharField(max_length=200, default="sku")
     uid = models.CharField(
         verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()

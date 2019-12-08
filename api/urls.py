@@ -6,6 +6,7 @@ from api.views.plantmachinelist import PlantMachineListView
 from api.views.machinemsglist import MachineMsgListView
 from api.views.plantmsglist import PlantMessageListView
 from api.views.userplantmsglist import UserPlantMessageListView
+from api.views.skulist import SkuIdListView
 app_name = 'api'
 
 
@@ -39,4 +40,6 @@ urlpatterns = [
          UserPlantMessageListView.as_view(),
          name="user/plant_msg_list",
          ),
+    path('skuid/list/', SkuIdListView.as_view(),
+         name="skuid_list")
 ]
