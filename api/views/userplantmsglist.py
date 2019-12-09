@@ -39,7 +39,7 @@ class MessageFilter(filters.FilterSet):
 
     def dayfilter(self, queryset, fieldname, value):
         return queryset.filter(timestamp_created__range=(
-            datetime.now() - timedelta(days=30 if n is None else int(value)),
+            datetime.now() - timedelta(days=30 if value is None else int(value)),
             datetime.now()
         ))
 
