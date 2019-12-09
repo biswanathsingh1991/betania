@@ -58,8 +58,6 @@ class UserPlantMessageListView(ListAPIView):
 
     def parsedata(self, data, queryset):
 
-        n = None
-        print(30 if n is None else 2)
         nq = MachineDetail.objects.filter(
             machine__plant__uid=self.request.user.userprofile.plant_staff.uid
         )
