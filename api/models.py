@@ -26,7 +26,7 @@ class Location(models.Model):
     timestamp_modified = ModificationDateTimeField()
 
     def __str__(self):
-        return self.city
+        return self.loc
 
 
 class MasterPlant(models.Model):
@@ -35,6 +35,8 @@ class MasterPlant(models.Model):
         verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     loc = models.ForeignKey(
         Location, verbose_name="Plant Location", on_delete=models.CASCADE)
+    seial_number = models.CharField(
+        verbose_name="Serial Number", max_length=50)
     timestamp_created = CreationDateTimeField()
     timestamp_modified = ModificationDateTimeField()
 
@@ -46,7 +48,7 @@ class MasterSku(models.Model):
     sku_id = models.CharField(verbose_name="Sku Name", max_length=200)
     ul = models.PositiveIntegerField(verbose_name="Sku Ul")
     ll = models.PositiveIntegerField(verbose_name="Sku ll")
-    name=models.CharField(max_length=200, default="sku")
+    name = models.CharField(max_length=200, default="sku")
     uid = models.CharField(
         verbose_name="Master Plant Uid", default=unique_uid_generator, editable=False, max_length=50)
     timestamp_created = CreationDateTimeField()
