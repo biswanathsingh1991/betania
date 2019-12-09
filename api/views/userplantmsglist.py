@@ -56,7 +56,18 @@ class UserPlantMessageListView(ListAPIView):
                        OrderingFilter, SearchFilter)
     filterset_class = MessageFilter
 
-    def parsedata(self, data, queryset):
+    def getSkuData(self, plant):
+        sku = {}
+        for i in MasterSku.objects.all():
+            k = MachineDetail.objects.filter(machine__plant__uid=plant.uid)
+            sku[i.name] = {
+                "total": k.count(),
+                "accept": k.filter(pass_status="accept").count(),
+                "rejtect": k.filter(pass_status="reject").count(),
+            }
+        return sku
+
+    def parsedata(self, data, queryset, plant):
 
         nq = MachineDetail.objects.filter(
             machine__plant__uid=self.request.user.userprofile.plant_staff.uid
@@ -74,8 +85,11 @@ class UserPlantMessageListView(ListAPIView):
             "filter_reject": queryset.filter(pass_status="accept").count(),
             "day": int(self.request.GET.get('day', 30)),
             "sku": sku_id.name,
+            "plant_name": plant.name,
+            "Location": plant.loc.loc,
             "sku_ul": sku_id.ul,
             "sku_ll": sku_id.ll,
+            "sku_data": self.getSkuData(plant),
             "data": data_dict,
         }
 
@@ -93,4 +107,4 @@ class UserPlantMessageListView(ListAPIView):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
-        return Response(self.parsedata(serializer.data, queryset))
+        return Response(self.parsedata(serializer.data, queryset, self.request.user.userprofile.plant_staff))
