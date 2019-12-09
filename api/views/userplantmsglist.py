@@ -39,7 +39,7 @@ class MessageFilter(filters.FilterSet):
 
     def dayfilter(self, queryset, fieldname, value):
         return queryset.filter(timestamp_created__range=(
-            datetime.now() - timedelta(days=int(value)),
+            datetime.now() - timedelta(days=30 if n is None else int(value)),
             datetime.now()
         ))
 
@@ -57,6 +57,9 @@ class UserPlantMessageListView(ListAPIView):
     filterset_class = MessageFilter
 
     def parsedata(self, data, queryset):
+
+        n = None
+        print(30 if n is None else 2)
         nq = MachineDetail.objects.filter(
             machine__plant__uid=self.request.user.userprofile.plant_staff.uid
         )
@@ -71,7 +74,7 @@ class UserPlantMessageListView(ListAPIView):
             'total_reject': nq.filter(pass_status='reject').count(),
             "filter_accept": queryset.filter(pass_status="accept").count(),
             "filter_reject": queryset.filter(pass_status="accept").count(),
-            "day": int(self.request.GET.get('day')),
+            "day": int(self.request.GET.get('day', 30)),
             "sku": sku_id.name,
             "sku_ul": sku_id.ul,
             "sku_ll": sku_id.ll,
