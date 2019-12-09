@@ -23,5 +23,7 @@ urlpatterns = [
     path('betania_template/', include('betania_template.urls',
                                       namespace="betania_template")),
     path('register/', include('register.urls', namespace="register url")),
+    path('rest-auth/', include('rest_auth.urls'))
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
