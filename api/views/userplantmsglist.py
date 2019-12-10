@@ -51,7 +51,6 @@ class UserPlantMessageListView(ListAPIView):
     parser_classes = (JSONParser,)
     authentication_classes = (TokenAuthentication, BaseAuthentication)
     permission_classes = (IsAuthenticated,)
-    permission_classes = ()
     filter_backends = (filters.DjangoFilterBackend,
                        OrderingFilter, SearchFilter)
     filterset_class = MessageFilter
