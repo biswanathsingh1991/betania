@@ -29,7 +29,7 @@ class SkuIdListViewV2(GenericAPIView):
     authentication_classes = (TokenAuthentication, BaseAuthentication)
     permission_classes = (IsAuthenticated,)
 
-    def get_time_filter_count(self, request, queryset):
+    def get_time_filter_count(self, request, queryset, ul, ll):
         day = request.GET.get("day", 30)
         q1 = queryset.filter(timestamp_created__range=(
             datetime.now() - timedelta(days=30 if day is None else int(day)),
@@ -38,16 +38,21 @@ class SkuIdListViewV2(GenericAPIView):
         total_count = q1.count()
         total_accept = q1.filter(pass_status="accept").count()
         total_reject = q1.filter(pass_status="reject").count()
-        return(day, total_count, total_accept, total_reject)
+        over_weight = q1.filter(box_weight__gt=ul).count()
+        under_weight = q1.filter(box_weight__lt=ll).count()
+        in_range = q1.filter(box_weight__gt=ll, box_weight__lt=ul).count()
+        return(day, total_count, total_accept, total_reject, over_weight, under_weight, in_range)
 
     def get(self, request, *args, **kwargs):
         plant = request.user.userprofile.plant_staff
         data = []
+        day = request.GET.get("day", 30)
         for i in MasterSku.objects.all():
             sku_msg = MachineDetail.objects.filter(
                 machine__plant__uid=plant.uid).filter(sku=i)
-            filter_day, filter_total_count, filter_total_accept, filter_total_reject = self.get_time_filter_count(
-                request, sku_msg)
+            filter_day, filter_total_count, filter_total_accept, filter_total_reject, filter_over_weight, filter_under_weight, in_range = self.get_time_filter_count(
+                request, sku_msg, i.ul, i.ll)
+
             data_dict = {
                 "sku_id": i.sku_id,
                 "ul": i.ul,
@@ -57,10 +62,16 @@ class SkuIdListViewV2(GenericAPIView):
                 "total_msg": sku_msg.count(),
                 "total_msg_accept": sku_msg.filter(pass_status="accept").count(),
                 "total_msg_reject": sku_msg.filter(pass_status="reject").count(),
-                "filter_day": filter_day,
+                "total_over_weight": sku_msg.filter(box_weight__gt=i.ul).count(),
+                "total_under_weight": sku_msg.filter(box_weight__lt=i.ll).count(),
+                "total_weight_inrange": sku_msg.filter(box_weight__gt=i.ll, box_weight__lt=i.ul).count(),
+                "filter_day": day,
                 "filter_total_count": filter_total_count,
                 "filter_total_accept": filter_total_accept,
                 "filter_total_reject": filter_total_reject,
+                "filter_over_weight": filter_over_weight,
+                "filter_under_weight": filter_under_weight,
+                "in_range": in_range
 
             }
             data.append(data_dict)

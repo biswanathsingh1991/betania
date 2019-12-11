@@ -84,12 +84,13 @@ class UserPlantMessageListView(ListAPIView):
             "filter_reject": queryset.filter(pass_status="accept").count(),
             "day": int(self.request.GET.get('day', 30)),
             "sku": sku_id.name,
-            "plant_name": plant.name,
-            "Location": plant.loc.loc,
+            "Location": plant.name,
+            "plant_name": plant.loc.loc,
             "sku_ul": sku_id.ul,
             "sku_ll": sku_id.ll,
             "sku_data": self.getSkuData(plant),
             "data": data_dict,
+
         }
 
     def get_queryset(self):
