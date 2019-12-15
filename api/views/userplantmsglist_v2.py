@@ -1,5 +1,3 @@
-
-
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -26,8 +24,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
 class MessageFilter(filters.FilterSet):
     sku = filters.CharFilter(field_name="sku", method="skufilter")
-    day = filters.NumberFilter(
-        field_name="timestamp_created", method="dayfilter")
+    
 
     class Meta:
         model = MachineDetail
@@ -44,7 +41,7 @@ class MessageFilter(filters.FilterSet):
         ))
 
 
-class UserPlantMessageListView(ListAPIView):
+class UserPlantMessageListViewV2(ListAPIView):
 
     serializer_class = MessageSerializer
     renderer_classes = (JSONRenderer,)
@@ -82,7 +79,6 @@ class UserPlantMessageListView(ListAPIView):
             'total_reject': nq.filter(pass_status='reject').count(),
             "filter_accept": queryset.filter(pass_status="accept").count(),
             "filter_reject": queryset.filter(pass_status="reject").count(),
-            "day": int(self.request.GET.get('day', 30)),
             "sku": sku_id.name,
             "Location": plant.name,
             "plant_name": plant.loc.loc,
@@ -93,10 +89,41 @@ class UserPlantMessageListView(ListAPIView):
 
         }
 
+    def dayfilter(self, queryset, value):
+    	return queryset.filter(timestamp_created__range=(
+            datetime.now() - timedelta(days=30 if value is None else int(value)),
+            datetime.now()
+        ))
+    def time_filter(self, queryset, hours):
+        return queryset.filter(timestamp_created__range=(
+            datetime.now() - timedelta(hours=int(hours)),
+    		datetime.now()
+        ))
+
+    def time_stamp_filter(self, queryset, t1, t2):
+    	tim1 = datetime.strptime(t1, "%d%m%Y")
+    	tim2=datetime.strptime(t2, "%d%m%Y")
+    	return queryset.filter(timestamp_created__range=(tim1,tim2))
+    	return queryset
+
+    def return_query_set(self, queryset, request):
+    	filter_type=request.GET.get("type")
+    	if (filter_type=="d"):
+    		return self.dayfilter(queryset, request.GET.get("days"))
+    	elif (filter_type=="h"):
+    		return self.time_filter(queryset, request.GET.get("hours"))
+    	elif (filter_type=="s"):
+    		return self.time_stamp_filter(queryset, request.GET.get("t1"), request.GET.get("t2"))
+    	else:
+    		return queryset
+
+    	return queryset
+
+
     def get_queryset(self):
         plant = self.request.user.userprofile.plant_staff
-        return MachineDetail.objects.filter(machine__plant__uid=plant.uid)
-        # return MachineDetail.objects.all()
+        mainquery =  MachineDetail.objects.filter(machine__plant__uid=plant.uid)
+        return self.return_query_set(mainquery, self.request)
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
