@@ -45,7 +45,7 @@ urlpatterns = [
     path('skuid/list/', SkuIdListView.as_view(),
          name="skuid_list"),
 
-    path('skuid/list/v2/', SkuIdListView.as_view(),
+    path('skuid/list/v2/', SkuIdListViewV2.as_view(),
          name="skuid_list"),
 
     path('user/plant/message/list/v2/', UserPlantMessageListViewV2.as_view(),
