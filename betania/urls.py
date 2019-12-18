@@ -20,10 +20,16 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls', namespace="api")),
-    path('betania_template/', include('betania_template.urls',
+    path('', include('betania_template.urls',
                                       namespace="betania_template")),
     path('register/', include('register.urls', namespace="register url")),
     path('rest-auth/', include('rest_auth.urls'))
 
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

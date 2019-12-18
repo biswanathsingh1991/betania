@@ -1,6 +1,4 @@
 ﻿<!DOCTYPE html>
-{% load static %}
-
 <html lang="en" class="material-style layout-fixed" ng-app="app">
 
 <head>
@@ -17,35 +15,35 @@
     <meta name="keywords"
         content="Bhumlu, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
     <meta name="author" content="Srthemesvilla" />
-    <link rel="icon" type="image/x-icon" href={% static "/tw/assets/img/favicon.ico" %}">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
     <!-- Icon fonts -->
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/fontawesome.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/ionicons.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/linearicons.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/open-iconic.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/pe-icon-7-stroke.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/fonts/feather.css" %}">
+    <link rel="stylesheet" href="assets/fonts/fontawesome.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.css">
+    <link rel="stylesheet" href="assets/fonts/linearicons.css">
+    <link rel="stylesheet" href="assets/fonts/open-iconic.css">
+    <link rel="stylesheet" href="assets/fonts/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="assets/fonts/feather.css">
     <!-- Core stylesheets -->
-    <link rel="stylesheet" href="{% static "tw/assets/css/bootstrap-material.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/css/shreerang-material.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/css/uikit.css" %}">
+    <link rel="stylesheet" href="assets/css/bootstrap-material.css">
+    <link rel="stylesheet" href="assets/css/shreerang-material.css">
+    <link rel="stylesheet" href="assets/css/uikit.css">
     <!-- Libs -->
-    <link rel="stylesheet" href="{% static "tw/assets/libs/perfect-scrollbar/perfect-scrollbar.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/libs/flot/flot.css" %}">
-    <link rel="stylesheet" href="//unpkg.com/angular-toastr/dist/angular-toastr.css"/>
-    <link rel="stylesheet" href="{% static "tw/assets/libs/datatables/datatables.css" %}">
+    <link rel="stylesheet" href="assets/libs/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/libs/flot/flot.css">
+    <link rel="stylesheet" href="//unpkg.com/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="assets/libs/datatables/datatables.css">
 
-    <link rel="stylesheet" href="{% static "tw/assets/libs/bootstrap-select/bootstrap-select.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/libs/bootstrap-multiselect/bootstrap-multiselect.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/libs/select2/select2.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" %}">
+    <link rel="stylesheet" href="assets/libs/bootstrap-select/bootstrap-select.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap-multiselect/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="assets/libs/select2/select2.css">
+    <link rel="stylesheet" href="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css">
 
     <!-- Page -->
-    <link rel="stylesheet" href="{% static "tw/app-content/app.css" %}">
-    <link rel="stylesheet" href="{% static "tw/assets/css/pages/authentication.css" %}">
+    <link rel="stylesheet" href="app-content/app.css">
+    <link rel="stylesheet" href="assets/css/pages/authentication.css">
 
 </head>
 
@@ -94,10 +92,8 @@
                         <span class="app-brand-logo demo">
                             <!-- <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid"> -->
                         </span>
-                        <span class="app-brand-text demo font-weight-normal ml-2">
-                            <img src="{% static "tw/assets/img/logo-dark.png" %}"
-                                alt="Brand Logo" class="img-fluid" style="width: 169px;">
-                        </span>
+                        <span class="app-brand-text demo font-weight-normal ml-2"><img src="assets/img/logo-dark.png"
+                                alt="Brand Logo" class="img-fluid" style="width: 169px;"></span>
                     </a>
                     <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
                     <div class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
@@ -129,7 +125,7 @@
                             <div class="demo-navbar-user nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                                        <img src="{% static "tw/assets/img/avatars/1.png" %}" alt class="d-block ui-w-30 rounded-circle">
+                                        <img src="assets/img/avatars/1.png" alt class="d-block ui-w-30 rounded-circle">
                                         <span class="px-1 mr-lg-2 ml-2 ml-lg-0" ng-cloak>{{username}}</span>
                                     </span>
                                 </a>
@@ -178,62 +174,62 @@
     <script src="//code.angularjs.org/1.6.0/angular-animate.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
-    <script src="{% static "tw/assets/libs/chartjs/chartjs.js" %}"></script>
-    <script src="{% static "tw/assets/libs/chartjs/angular-chart.js" %}"></script>
+    <script src="assets/libs/chartjs/chartjs.js"></script>
+    <script src="assets/libs/chartjs/angular-chart.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.0/ui-bootstrap-tpls.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
 
     <!-- Core scripts -->
-    <script src="{% static "tw/assets/js/pace.js" %}"></script>
-    <script src="{% static "tw/assets/js/jquery-3.3.1.min.js" %}"></script>
-    <script src="{% static "tw/assets/libs/popper/popper.js" %}"></script>
-    <script src="{% static "tw/assets/libs/popper/popper.js" %}"></script>
-    <script src="{% static "tw/assets/js/sidenav.js" %}"></script>
-    <script src="{% static "tw/assets/js/layout-helpers.js" %}"></script>
-    <script src="{% static "tw/assets/js/material-ripple.js" %}"></script>
+    <script src="assets/js/pace.js"></script>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/libs/popper/popper.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/sidenav.js"></script>
+    <script src="assets/js/layout-helpers.js"></script>
+    <script src="assets/js/material-ripple.js"></script>
 
     <!-- Libs -->
-    <script src="{% static "tw/assets/libs/perfect-scrollbar/perfect-scrollbar.js" %}"></script>
-    <script src="{% static "tw/assets/libs/bootstrap-select/bootstrap-select.js" %}"></script>
-    <script src="{% static "tw/assets/libs/datatables/datatables.js" %}"></script>
-    <script src="{% static "tw/assets/libs/eve/eve.js" %}"></script>
-    <script src="{% static "tw/assets/libs/flot/flot.js" %}"></script>
-    <script src="{% static "tw/assets/libs/flot/curvedLines.js" %}"></script>
-    <script src="{% static "tw/assets/libs/chart-am4/core.js" %}"></script>
-    <script src="{% static "tw/assets/libs/chart-am4/charts.js" %}"></script>
-    <script src="{% static "tw/assets/libs/chart-am4/animated.js" %}"></script>
+    <script src="assets/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script src="assets/libs/datatables/datatables.js"></script>
+    <script src="assets/libs/eve/eve.js"></script>
+    <script src="assets/libs/flot/flot.js"></script>
+    <script src="assets/libs/flot/curvedLines.js"></script>
+    <script src="assets/libs/chart-am4/core.js"></script>
+    <script src="assets/libs/chart-am4/charts.js"></script>
+    <script src="assets/libs/chart-am4/animated.js"></script>
     <script src="//unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <script src="{% static "tw/assets/libs/select2/select2.js" %}"></script>
-    <script src="{% static "tw/assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.js" %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" ></script>
-    <script src="{% static "tw/assets/libs/bootstrap-multiselect/bootstrap-multiselect.js" %}"></script>
-    <script src="//rawgit.com/moment/moment/2.2.1/min/moment.min.js" ></script>
+    <script src="assets/libs/select2/select2.js"></script>
+    <script src="assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="assets/libs/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="//rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
 
 
     <!-- Demo -->
-    <script src="{% static "tw/assets/js/demo.js" %}"></script>
-    <script src="{% static "tw/assets/js/analytics.js" %}"></script>
-    <script src="{% static "tw/assets/js/pages/tables_datatables.js" %}"></script>
-    <script src="{% static "tw/assets/js/pages/forms_selects.js" %}"></script>
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/pages/tables_datatables.js"></script>
+    <script src="assets/js/pages/forms_selects.js"></script>
     <!-- <script src="assets/js/pages/dashboards_index.js"></script> -->
 
-    <script src="{% static "tw/app.js" %}"></script>
-    <script src="{% static "tw/app-services/authentication.service.js" %}"></script>
-    <script src="{% static "tw/app-services/flash.service.js" %}"></script>
-    <script src="{% static "tw/app-services/api.services.js" %}"></script>
+    <script src="app.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="app-services/api.services.js"></script>
 
     <!-- Real user service that uses an api -->
     <!-- <script src="app-services/user.service.js"></script> -->
 
     <!-- Fake user service for demo that uses local storage -->
-    <script src="{% static "tw/app-services/user.service.local-storage.js" %}"></script>
+    <script src="app-services/user.service.local-storage.js"></script>
 
-    <script src="{% static "/tw/pages/home/home.controller.js" %}"></script>
-    <script src="{% static "tw/pages/login/login.controller.js" %}"></script>
-    <script src="{% static "tw/pages/register/register.controller.js" %}"></script>
-    <script src="{% static "tw/shared/header.controller.js" %}"></script>
+    <script src="pages/home/home.controller.js"></script>
+    <script src="pages/login/login.controller.js"></script>
+    <script src="pages/register/register.controller.js"></script>
+    <script src="shared/header.controller.js"></script>
 
     <script>
         $(function() {

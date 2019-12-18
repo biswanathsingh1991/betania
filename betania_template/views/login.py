@@ -1,10 +1,10 @@
 from django.views.generic import TemplateView
 
 
-class IndexTemplateView(TemplateView):
+class LoginTemplateView(TemplateView):
     http_method_names = ['get', 'post', 'put',
                          'patch', 'delete', 'head', 'options', 'trace']
-    template_name = 'index.html'
+    template_name = 'login.html'
 
     def get(self, request, *args, **kwargs):
 
