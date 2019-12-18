@@ -13,7 +13,7 @@ app_name = 'api'
 
 
 urlpatterns = [
-    path('test/',
+    path('Test/GetStringGetMethod',
          CreateMessageView.as_view(),
          name="create_message",
          ),
