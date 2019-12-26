@@ -8,7 +8,10 @@ from api.views.plantmsglist import PlantMessageListView
 from api.views.userplantmsglist import UserPlantMessageListView
 from api.views.skulist import SkuIdListView
 from api.views.sku_list_v2 import SkuIdListViewV2
+from api.views.sku_list_v3 import SkuIdListViewV3
+
 from api.views.userplantmsglist_v2 import UserPlantMessageListViewV2
+from register.views.signin import StaffLoginView
 app_name = 'api'
 
 
@@ -45,9 +48,22 @@ urlpatterns = [
     path('skuid/list/', SkuIdListView.as_view(),
          name="skuid_list"),
 
-    path('skuid/list/v2/', SkuIdListViewV2.as_view(),
-         name="skuid_list"),
+    path('skuid/list/v2/', 
+            SkuIdListViewV2.as_view(),
+            name="skuid_list"
+        ),
+
+    path('skuid/list/v3/', 
+            SkuIdListViewV3.as_view(),
+            name="skuid_list"
+        ),
 
     path('user/plant/message/list/v2/', UserPlantMessageListViewV2.as_view(),
-         name="user_plant_msg_listv2")
+         name="user_plant_msg_listv2"),
+
+
+    path('staff/login/', 
+        StaffLoginView.as_view(),
+        name="staff_login_view"
+        )
 ]

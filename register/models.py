@@ -10,6 +10,7 @@ class UserProfile(models.Model):
 
     plant_staff = models.ForeignKey(
         MasterPlant, verbose_name="Plant", on_delete=models.SET_NULL, null=True)
+    staff_user = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

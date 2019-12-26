@@ -31,4 +31,4 @@ class CreateMessageView(GenericAPIView):
             box_weight=mess[2],
             pass_status=mess[3],
         )
-        return Response(status=status.HTTP_201_CREATED,)
+        return Response(data={"success": True}, status=status.HTTP_201_CREATED,)

@@ -112,7 +112,7 @@
                     "username": $scope.vm.username,
                     "password": $scope.vm.password
                 };
-                $http.post('http://15.206.35.51:81/rest-auth/login/', data).then(function (response) {
+                $http.post('http://15.206.35.51/rest-auth/login/', data).then(function (response) {
                     let jd = JSON.stringify({
                         username : $scope.vm.username,
                         token : response.data.key
@@ -120,7 +120,7 @@
                     localStorage.setItem('tw_auth_details',jd);
                     
                     $scope.vm.dataLoading = false;
-                    window.location = 'index.html';
+                    window.location = 'http://15.206.35.51/index.html/';
                 }, function (response) {
                     toastr.info('Username or password is incorrect','Invalid Credentials');
                     $scope.vm.dataLoading = false;

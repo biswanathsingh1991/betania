@@ -93,18 +93,18 @@ class UserPlantMessageListViewV2(ListAPIView):
     	return queryset.filter(timestamp_created__range=(
             datetime.now() - timedelta(days=30 if value is None else int(value)),
             datetime.now()
-        ))
+        )).order_by('-timestamp_created')
     def time_filter(self, queryset, hours):
         return queryset.filter(timestamp_created__range=(
             datetime.now() - timedelta(hours=int(hours)),
     		datetime.now()
-        ))
+        )).order_by('-timestamp_created')
 
     def time_stamp_filter(self, queryset, t1, t2):
     	tim1 = datetime.strptime(t1, "%d%m%Y")
     	tim2=datetime.strptime(t2, "%d%m%Y")
-    	return queryset.filter(timestamp_created__range=(tim1,tim2))
-    	return queryset
+    	return queryset.filter(timestamp_created__range=(tim1,tim2)).order_by('-timestamp_created')
+    	# return queryset.order_by('-timestamp_created')
 
     def return_query_set(self, queryset, request):
     	filter_type=request.GET.get("type")
